@@ -43,14 +43,14 @@ jobs:
           dotnet workload install android --ignore-failed-sources
           dotnet workload install maui --ignore-failed-sources
       - name: Restore Dependencies
-        run: dotnet restore src/CruftBuster/CruftBuster.csproj
+        run: dotnet restore src/CruftBuster/CruftBuster/CruftBuster.csproj
 
       - name: Build MAUI Android
-        run: dotnet build src/CruftBuster/CruftBuster.csproj -c Release -f net6.0-android --no-restore
+        run: dotnet build src/CruftBuster/CruftBuster/CruftBuster.csproj -c Release -f net6.0-android --no-restore
 
       - name: Upload Android Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
           name: android-ci-build
-          path: src/CruftBuster/bin/Release/net6.0-android/*Signed.a*
+          path: src/CruftBuster/CruftBuster/bin/Release/net6.0-android/*Signed.a*
 
