@@ -19,5 +19,7 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
       - name: Build the app
         run: src/gradlew -p ./src build
